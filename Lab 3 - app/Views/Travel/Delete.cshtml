@@ -1,0 +1,13 @@
+﻿@model Travel
+@{
+}
+
+<h1>Czy na pewno chcesz usunąć podróż nr @Model.Id?</h1>
+
+<form asp-controller="Travel" asp-action="Delete">
+    <input asp-for="Id" type="hidden" />
+    <div class="mb-3">
+        <button class="btn btn-danger" type="submit">Tak</button>
+        <a class="btn btn-primary" asp-action="Index">Nie</a>
+    </div>
+</form>

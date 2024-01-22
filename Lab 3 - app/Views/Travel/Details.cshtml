@@ -1,0 +1,12 @@
+﻿@model Travel
+@{
+}
+<p><b>Nazwa:</b> @Model.Name</p>
+<p><b>Data rozpoczęcia:</b> @Model.StartDate.ToString("yyyy-MM-ddTHH:mm")</p>
+<p><b>Data zakończenia:</b> @Model.EndDate.ToString("yyyy-MM-ddTHH:mm")</p>
+<p><b>Miejsce początkowe:</b> @Model.StartingLocation</p>
+<p><b>Miejsce docelowe:</b> @Model.Destination</p>
+<p><b>Uczestnicy:</b> @Model.Participants</p>
+<p><b>Przewodnik:</b> @Model.Guide</p>
+<br />
+<a class="btn btn-primary" asp-action="Index">Powrót</a>

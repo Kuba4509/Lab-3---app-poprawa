@@ -1,0 +1,55 @@
+﻿@model List<Travel>
+@{
+}
+<h1>Lista podróży</h1>
+<a class="btn btn-primary" asp-controller="Travel" asp-action="Create">Dodaj podróż</a>
+
+@if (Model.Count > 0)
+{
+        <table class="table">
+            <tr>
+                <th>
+                @Html.DisplayNameFor(model => model[0].Name)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].StartDate)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].EndDate)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].StartingLocation)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].Destination)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].Participants)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model[0].Guide)
+                </th>
+                <th>
+                    Akcje
+                </th>
+            </tr>
+
+        @foreach (var item in @Model)
+        {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.StartDate.ToString("yyyy-MM-ddTHH:mm")</td>
+                        <td>@item.EndDate.ToString("yyyy-MM-ddTHH:mm")</td>
+                        <td>@item.StartingLocation</td>
+                        <td>@item.Destination</td>
+                        <td>@item.Participants</td>
+                        <td>@item.Guide</td>
+                        <td>
+                            <a class="btn btn-outline-primary" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id">Edycja</a>
+                            <a class="btn btn-outline-info" asp-controller="Travel" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                            <a class="btn btn-outline-danger" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                        </td>
+                    </tr>
+        }
+        </table>
+}
